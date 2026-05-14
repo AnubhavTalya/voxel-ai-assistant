@@ -1,0 +1,88 @@
+/* src/components/LogPanel.css */
+
+.log-panel { gap: 14px; }
+.log-header { display: flex; align-items: center; justify-content: space-between; }
+
+.log-clear-btn {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: .8px;
+  padding: 4px 10px; border-radius: 5px;
+  border: 1px solid var(--border); background: none;
+  color: var(--text-3); cursor: pointer; transition: all .14s;
+}
+.log-clear-btn:hover { border-color: var(--danger); color: var(--danger); }
+
+.log-list { display: flex; flex-direction: column; gap: 5px; }
+
+.log-empty {
+  font-family: var(--font-mono); font-size: 11px; color: var(--text-3);
+  text-align: center; padding: 32px;
+}
+
+.log-entry {
+  display: flex; align-items: flex-start; gap: 10px;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 9px 12px;
+}
+
+.log-time {
+  font-family: var(--font-mono); font-size: 10px; color: var(--text-3);
+  flex-shrink: 0; padding-top: 1px;
+}
+
+.log-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  flex-shrink: 0; margin-top: 4px;
+}
+
+.log-body { flex: 1; }
+.log-msg  { font-size: 12px; color: var(--text); line-height: 1.5; }
+.log-cmd  { font-family: var(--font-mono); font-size: 10px; color: var(--accent2); margin-top: 2px; }
+
+/* ── Settings ───────────────────────────────────────────────────────────────── */
+.settings-panel { gap: 16px; }
+
+.sett-section {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+
+.sett-section-title {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 1.6px;
+  color: var(--text-3); padding: 10px 16px 6px;
+  border-bottom: 1px solid var(--border); text-transform: uppercase;
+}
+
+.sett-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; border-bottom: 1px solid var(--border);
+}
+.sett-row:last-child { border-bottom: none; }
+
+.sett-label { font-size: 13px; font-weight: 600; color: var(--text); }
+.sett-sub   { font-size: 11px; color: var(--text-3); margin-top: 2px; }
+
+.sett-control {
+  display: flex; align-items: center; gap: 8px; flex-shrink: 0;
+}
+
+.sett-select {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 6px; color: var(--text);
+  font-family: var(--font-mono); font-size: 11px;
+  padding: 5px 10px; outline: none; cursor: pointer;
+}
+.sett-select:focus { border-color: var(--accent); }
+
+.sett-input {
+  background: var(--bg3); border: 1px solid var(--border);
+  border-radius: 6px; color: var(--text);
+  font-family: var(--font-mono); font-size: 11px;
+  padding: 5px 10px; outline: none; width: 140px;
+}
+.sett-input:focus { border-color: var(--accent); }
+
+.sett-range { width: 100px; accent-color: var(--accent); cursor: pointer; }
+.sett-range-val {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--accent); min-width: 52px; text-align: right;
+}

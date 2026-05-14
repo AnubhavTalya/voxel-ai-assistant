@@ -1,0 +1,68 @@
+/* src/components/CommandsPanel.css */
+
+.commands-panel { gap: 16px; }
+
+.commands-header {
+  display: flex; align-items: center; justify-content: space-between;
+}
+
+.cmd-search-bar {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 9px 14px;
+}
+.cmd-search-bar:focus-within { border-color: var(--accent); }
+
+.search-icon { font-size: 16px; color: var(--text-3); }
+
+.cmd-search-input {
+  flex: 1; background: none; border: none; outline: none;
+  color: var(--text); font-family: var(--font-body); font-size: 13px;
+}
+.cmd-search-input::placeholder { color: var(--text-3); }
+
+.search-clear {
+  background: none; border: none; color: var(--text-3); cursor: pointer;
+  font-size: 11px; padding: 2px 4px; border-radius: 4px;
+}
+.search-clear:hover { color: var(--danger); }
+
+.cat-row {
+  display: flex; flex-wrap: wrap; gap: 6px;
+}
+
+.cat-pill {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: .6px;
+  padding: 4px 12px; border-radius: 20px;
+  border: 1px solid var(--border); background: none;
+  color: var(--text-3); cursor: pointer; transition: all .14s;
+}
+.cat-pill:hover { border-color: var(--border-hi); color: var(--text-2); }
+.cat-pill.cat-active {
+  border-color: var(--accent); color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.cmd-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 8px;
+}
+
+.cmd-card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 13px;
+  cursor: pointer; transition: all .14s;
+  display: flex; flex-direction: column; gap: 7px;
+}
+.cmd-card:hover { border-color: var(--accent); transform: translateY(-1px); }
+
+.cmd-icon  { font-size: 18px; color: var(--accent); }
+.cmd-name  { font-weight: 700; font-size: 12px; color: var(--text); }
+.cmd-phrase {
+  font-family: var(--font-mono); font-size: 10px;
+  color: var(--accent); background: var(--accent-dim);
+  padding: 2px 7px; border-radius: 4px; width: fit-content;
+}
+.cmd-cat { font-size: 10px; color: var(--text-3); }
+.cmd-empty { grid-column: 1/-1; text-align: center; color: var(--text-3); padding: 32px; }

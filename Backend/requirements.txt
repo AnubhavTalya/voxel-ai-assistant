@@ -1,0 +1,31 @@
+# VOXEL — Offline Voice AI Assistant
+# Install with: pip install -r requirements.txt
+#
+# Core (required)
+pyaudio>=0.2.14           # microphone audio capture
+numpy>=1.24.0             # audio buffer manipulation
+
+# Speech recognition — pick ONE (faster-whisper recommended)
+faster-whisper>=1.0.0     # quantised Whisper, fast CPU inference  ← recommended
+# openai-whisper>=20231117  # original OpenAI Whisper (larger, slower)
+
+# TTS — pick ONE
+pyttsx3>=2.90             # cross-platform offline TTS (espeak / SAPI5 / NSSpeechSynthesizer)
+
+# Automation
+pyautogui>=0.9.54         # keyboard / mouse / screenshot automation
+pillow>=10.0.0            # required by pyautogui for screenshots
+
+# Configuration
+pyyaml>=6.0.1             # config.yaml loading
+
+# Wake word — optional, install ONE
+# openwakeword>=0.5.1      # free, best accuracy (pip install openwakeword)
+# pvporcupine>=3.0.0       # Picovoice (free tier, needs account for custom words)
+
+# Local LLM fallback — optional
+# ollama>=0.1.0            # Ollama Python client (run: ollama pull phi3:mini first)
+
+# Development / testing
+pytest>=7.4.0
+pytest-mock>=3.12.0

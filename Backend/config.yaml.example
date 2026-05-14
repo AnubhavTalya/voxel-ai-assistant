@@ -1,0 +1,29 @@
+# ~/.voxel/config.yaml — VOXEL Configuration
+# All settings have sensible defaults; only override what you need.
+
+# ── Speech Recognition ──────────────────────────────────────────────────────
+whisper_model: base.en      # tiny.en | base.en | small.en | medium.en
+                            # larger = more accurate but slower on CPU
+sample_rate: 16000
+silence_threshold: 0.02     # RMS amplitude; lower = more sensitive mic
+silence_duration: 1.2       # seconds of silence before utterance ends
+language: en
+
+# ── Wake Word ───────────────────────────────────────────────────────────────
+wake_word: hey voxel
+wake_word_sensitivity: 0.7  # 0.0 (strict) → 1.0 (permissive)
+always_on: false             # true = skip wake word, always listen
+
+# ── TTS ─────────────────────────────────────────────────────────────────────
+tts_enabled: true
+tts_rate: 175               # words per minute
+tts_volume: 0.9             # 0.0 → 1.0
+
+# ── Logging ─────────────────────────────────────────────────────────────────
+debug: false
+log_file: ~/.voxel/voxel.log
+
+# ── Automation ──────────────────────────────────────────────────────────────
+automation_delay: 0.05       # seconds between simulated key/mouse events
+screenshot_dir: ~/Desktop
+backup_dir: ~/Backups

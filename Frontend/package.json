@@ -1,0 +1,38 @@
+{
+  "name": "voxel-desktop",
+  "version": "1.0.0",
+  "description": "VOXEL — Offline Voice AI Assistant Desktop App",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"electron .\"",
+    "build": "vite build && electron-builder",
+    "preview": "vite preview",
+    "electron": "electron .",
+    "lint": "eslint src --ext .js,.jsx"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "zustand": "^4.5.2",
+    "framer-motion": "^11.0.0",
+    "lucide-react": "^0.383.0",
+    "reconnecting-websocket": "^4.4.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.1",
+    "vite": "^5.2.0",
+    "concurrently": "^8.2.2",
+    "electron": "^30.0.0",
+    "electron-builder": "^24.13.3",
+    "eslint": "^8.57.0"
+  },
+  "build": {
+    "appId": "com.voxel.desktop",
+    "productName": "VOXEL",
+    "directories": { "output": "dist-electron" },
+    "files": ["dist/**/*", "electron/**/*"],
+    "mac": { "icon": "public/icon.icns", "category": "public.app-category.productivity" },
+    "linux": { "icon": "public/icon.png", "target": ["AppImage", "deb"] },
+    "win": { "icon": "public/icon.ico", "target": "nsis" }
+  }
+}

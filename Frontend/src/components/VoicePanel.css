@@ -1,0 +1,199 @@
+/* src/components/VoicePanel.css */
+
+.voice-panel {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  overflow: hidden;
+  padding: 24px;
+}
+
+/* ── Ambient rings ──────────────────────────────────────────────────────────── */
+.voice-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.ambient-ring {
+  position: absolute;
+  left: 50%; top: 48%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid;
+  opacity: 0;
+  transition: opacity .5s;
+}
+
+.ring-0 { width: 140px;  height: 140px;  border-color: var(--accent);  }
+.ring-1 { width: 220px;  height: 220px;  border-color: var(--accent);  }
+.ring-2 { width: 320px;  height: 320px;  border-color: var(--accent2); }
+.ring-3 { width: 430px;  height: 430px;  border-color: var(--accent2); }
+
+.ambient-ring.ring-active {
+  opacity: 1;
+  animation: ring-expand 2.6s ease-out infinite;
+}
+.ring-1.ring-active { animation-delay: .4s; }
+.ring-2.ring-active { animation-delay: .8s; }
+.ring-3.ring-active { animation-delay: 1.2s; }
+
+@keyframes ring-expand {
+  0%   { opacity: .22; transform: translate(-50%, -50%) scale(.85); }
+  100% { opacity: 0;   transform: translate(-50%, -50%) scale(1.08); }
+}
+
+/* ── Mic orb ────────────────────────────────────────────────────────────────── */
+.voice-core {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  z-index: 1;
+}
+
+.mic-orb {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 2px solid var(--border-hi);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .25s, box-shadow .25s, background .25s;
+  outline: none;
+}
+
+.mic-orb:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 6px var(--accent-dim);
+}
+
+.mic-orb.orb-listening {
+  border-color: var(--accent);
+  background: var(--bg3);
+  box-shadow: 0 0 0 6px var(--accent-dim), 0 0 24px var(--accent-glow);
+}
+
+.mic-orb.orb-processing {
+  border-color: var(--accent2);
+  box-shadow: 0 0 0 6px var(--accent2-dim);
+}
+
+.mic-orb.orb-disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.orb-inner {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--bg3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mic-glyph {
+  font-size: 22px;
+  line-height: 1;
+  color: var(--text-2);
+  transition: color .2s;
+}
+.orb-listening .mic-glyph { color: var(--accent); }
+
+.spin-ring {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--accent2);
+  border-top-color: transparent;
+  animation: spin .7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.voice-status-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--text-3);
+  transition: color .25s;
+}
+.voice-status-label.label-active { color: var(--accent); }
+
+/* ── Waveform ───────────────────────────────────────────────────────────────── */
+.waveform {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 42px;
+}
+
+.wbar {
+  width: 3px;
+  min-height: 3px;
+  border-radius: 2px;
+  background: var(--bg3);
+  transition: height .06s ease, background .25s;
+}
+.wbar.wbar-active { background: var(--accent); }
+
+/* ── Cards ──────────────────────────────────────────────────────────────────── */
+.voice-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 480px;
+  z-index: 1;
+}
+
+.voice-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+}
+
+.card-transcript { border-left: 3px solid var(--accent2); }
+.card-response   { border-left: 3px solid var(--accent); }
+
+.card-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 1.8px;
+  color: var(--text-3);
+  margin-bottom: 7px;
+}
+.card-label-accent { color: var(--accent); }
+
+.card-text {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.65;
+}
+
+/* ── Hint ───────────────────────────────────────────────────────────────────── */
+.voice-hint {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-3);
+  z-index: 1;
+}
+
+.voice-hint kbd {
+  background: var(--bg3);
+  border: 1px solid var(--border-hi);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-2);
+}
